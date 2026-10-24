@@ -15,6 +15,7 @@ import {
   PrimaryButton,
   answerRow,
   questionBand,
+  questionBody,
   questionShell,
   questionTitle,
 } from "./box-ui";
@@ -231,7 +232,7 @@ const DecisionsCard = ({
           )}
         </header>
 
-        <div className="p-2">
+        <div className={cn(questionBody, "p-2")}>
           {item ? (
             <div key={item.id} className="neo-question-enter">
               <ol
@@ -247,7 +248,7 @@ const DecisionsCard = ({
                 }
                 aria-label={item.question}
                 aria-activedescendant={`neo-q-${item.id}-${cursor}`}
-                className="flex flex-col gap-1 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pi-brand-border"
+                className="flex flex-col gap-1 rounded-lg outline-none"
               >
                 {rows
                   .filter((r) => r.id !== OTHER)

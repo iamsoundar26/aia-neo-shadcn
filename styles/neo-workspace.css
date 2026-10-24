@@ -589,9 +589,6 @@ html[data-neo-open] [data-sonner-toaster][data-y-position="bottom"] {
 .neo-answer-option {
   transition: background-color 180ms ease, box-shadow 180ms ease;
 }
-.neo-answer-option[aria-selected="true"] {
-  box-shadow: inset 0 0 0 1px var(--pi-brand-border);
-}
 .neo-answer-option:active {
   background-color: var(--pi-brand-tint);
 }

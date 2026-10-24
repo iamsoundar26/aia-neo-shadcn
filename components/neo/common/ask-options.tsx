@@ -5,6 +5,7 @@ import {
   PrimaryButton,
   answerRow,
   questionBand,
+  questionBody,
   questionShell,
   questionTitle,
 } from "./box-ui";
@@ -44,7 +45,7 @@ const AskOptions = ({ ask, live, onPick }: Props) => {
         </div>
       </header>
       {live && (
-        <div className="flex flex-col gap-1 p-2">
+        <div className={cn(questionBody, "flex flex-col gap-1 p-2")}>
           {!ask.input &&
             ask.options.map((o, i) => (
               <button
@@ -53,7 +54,7 @@ const AskOptions = ({ ask, live, onPick }: Props) => {
                 onClick={() => onPick(o.id)}
                 className={cn(
                   answerRow(false, false),
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border"
+                  "focus-visible:bg-pi-fill focus-visible:outline-none"
                 )}
               >
                 <Badge>{i + 1}</Badge>

@@ -106,7 +106,10 @@ export const Badge = ({
 export const questionShell =
   "overflow-hidden rounded-xl border border-pi-line-2 bg-background";
 export const questionBand =
-  "flex items-start justify-between gap-3 bg-pi-head-bg px-4 py-3";
+  "flex items-start justify-between gap-3 bg-pi-fill px-4 pb-6 pt-3";
+/** The white body rises over the band with its own curved top edge. */
+export const questionBody =
+  "relative -mt-3 rounded-t-xl border-t border-pi-line-2 bg-background";
 export const questionTitle =
   "min-w-0 flex-1 break-words text-[14px] font-semibold leading-5 text-pi-ink";
 
