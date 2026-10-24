@@ -271,19 +271,12 @@ const reconRun: NeoTask = {
       return "No settlement data for this client";
     }
 
-    // The guided first run (22 Oct 2026) opens on one choice: the sample
-    // or your own files. Asking for the sample by name skips it.
+    // The guided first run follows the same steps as any other (24 Oct
+    // 2026): month, then files. Asking for the sample by name skips the
+    // files step.
     const guided = reconOnboarding().guided;
     const NOTE = GUIDE_COPY.notes;
-    let picked: string[] | undefined;
-    if (guided && !api.attachments.length && !/\bsample\b/i.test(api.prompt)) {
-      // One step, not two (24 Oct 2026): the card opens straight away,
-      // with "Use the sample" on it for anyone without files.
-      await api.coach(1, GUIDE_COPY.intro);
-      const own = await askFiles(api, "sep");
-      if (!own) return "Not started";
-      picked = own;
-    }
+    const picked: string[] | undefined = undefined;
 
     // 01 · Choose a template.
     api.stage(1);
@@ -299,18 +292,7 @@ const reconRun: NeoTask = {
     const named = periodIn(api.prompt);
     const asked = typeof named === "string" ? named : "sep";
     let periodId: ReconPeriodId = asked;
-    if (guided) {
-      // A first run isn't the moment for setup questions: the defaults
-      // stand, and say so.
-      if (!cfg)
-        cfg = confirmConfig(company, {
-          timezone: "Asia/Kolkata",
-          currency: "INR",
-        });
-      await api.think(
-        `${RECON_PERIODS[periodId].label} for ${companyOf(company)?.name}, in IST and rupees: configuration v${cfg.version}.`
-      );
-    } else {
+    {
       await api.checkpoint();
       await api.coach(1, GUIDE_COPY.month);
       const sheet = await decide(
@@ -396,7 +378,7 @@ const reconRun: NeoTask = {
       const own = await askFiles(api, periodId, api.attachments);
       if (!own) return "Not started";
       attached = own;
-    } else if (guided || /\bsample\b/i.test(api.prompt))
+    } else if (/\bsample\b/i.test(api.prompt))
       attached = RECON_SAMPLE[periodId].map((f) => f.name);
     else {
       await api.think(
