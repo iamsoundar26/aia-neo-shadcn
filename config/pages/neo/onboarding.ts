@@ -13,6 +13,11 @@ export const RECON_WELCOME = {
   launch: "Three-way reconciliation",
   detail:
     "Neo checks every payment in your bank statement against your payout reports and books. Done in minutes, not hours.",
+  outcomes: [
+    "Find every payment that doesn't match",
+    "Get a report you can edit and download",
+    "Nothing changes in your books until you approve",
+  ],
   primary: "Try it now",
   media: {
     video: asset("/onboarding/neo-happy-flow.mp4"),
