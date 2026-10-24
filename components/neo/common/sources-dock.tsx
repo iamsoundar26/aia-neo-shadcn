@@ -476,7 +476,10 @@ const SourcesDock = ({ card, onChange, onAnswer }: Props) => {
         <button
           type="button"
           data-testid="sources-sample"
-          onClick={() => onAnswer("sample")}
+          onClick={() => {
+            if (card.sample) onChange({ ...latest.current, files: card.sample });
+            onAnswer("sample");
+          }}
           className="h-8 flex-none rounded-lg px-2 text-[14px] font-semibold text-pi-brand transition-colors hover:bg-pi-brand-tint hover:text-pi-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border"
         >
           Use the sample

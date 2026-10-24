@@ -7,7 +7,7 @@ import type {
   NeoTaskApi,
 } from "@/types/pages/neo";
 import { findItemId, money } from "@/utils/pages/neo";
-import { OTHER } from "@/utils/pages/neo/decisions";
+import { OTHER, applies } from "@/utils/pages/neo/decisions";
 
 /**
  * What the scripted tasks share: reading the store the way the screens do,
@@ -128,6 +128,28 @@ export const decide = async (
       })),
     })),
   };
+  // Neo says what it is asking and why, in the thread, before the card opens
+  // in the prompt box: the card is where you answer, this is the context.
+  const asked = card.items.filter((i) => !i.settled && applies(card, i));
+  const pick = (i: (typeof asked)[number]) =>
+    i.options.find((o) => o.id === i.recommended)?.label;
+  const ending = (i: (typeof asked)[number]) =>
+    pick(i)
+      ? `I'd go with **${pick(i)}**; change it if that's not right.`
+      : "Pick the one that fits.";
+  if (asked.length === 1)
+    await api.say(
+      `I need one thing from you before I go on: **${asked[0].question}** ${asked[0].why ? `${asked[0].why} ` : ""}${ending(asked[0])}`
+    );
+  else if (asked.length > 1)
+    await api.say(
+      `I have ${asked.length} questions before I go on.\n\n${asked
+        .map(
+          (i, n) =>
+            `${n + 1}. **${i.question}** ${i.why ? `${i.why} ` : ""}${ending(i)}`
+        )
+        .join("\n")}\n\nMy picks are filled in. Change any that look wrong, or choose **Decide all** to take them as they are.`
+    );
   const choice = await api.card(card, actions);
   // "Something else" hands the task its fallback pick and your words.
   const picks: Record<string, string> = {};

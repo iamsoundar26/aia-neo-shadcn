@@ -32,9 +32,15 @@ import type {
 } from "@/types/pages/neo/recon";
 import { decide } from "./shared";
 import { fileOf } from "@/utils/pages/neo/attachment-files";
+import { rangeLabel } from "@/utils/pages/neo/detect-file";
 import { reconOnboarding } from "@/hooks/pages/neo/use-recon-onboarding";
 import { GUIDE_COPY } from "@/config/pages/neo/onboarding";
-import type { NeoTask, NeoTaskApi, NeoUploadFile } from "@/types/pages/neo";
+import type {
+  NeoCard,
+  NeoTask,
+  NeoTaskApi,
+  NeoUploadFile,
+} from "@/types/pages/neo";
 import { has } from "@/utils/pages/neo";
 
 /**
@@ -156,8 +162,8 @@ const askFiles = async (
 ) => {
   const p = RECON_PERIODS[period];
   const company = api.context.company || getState().company;
-  const card = {
-    kind: "sources-upload" as const,
+  const card: Extract<NeoCard, { kind: "sources-upload" }> = {
+    kind: "sources-upload",
     slots: [
       {
         id: "bank",
@@ -191,6 +197,31 @@ const askFiles = async (
       })
     ),
   };
+  const sampleSet = RECON_SAMPLE[period];
+  const kb = (t: string) => Math.round((parseFloat(t) || 1) * 1024);
+  // The sample also holds a duplicate and a PDF, to show how those are caught.
+  const sampleFiles: NeoUploadFile[] = sampleSet
+    .filter((f) => f.kind !== "unsupported" && !/\(\d+\)/.test(f.name))
+    .map((f) => ({
+    slot: f.kind === "bank" ? "bank" : f.kind === "books" ? "sales" : "gateway",
+    name: f.name,
+    size: kb(f.size),
+    state: "ready",
+    label: `${f.provider} · ${
+      f.kind === "bank"
+        ? "Bank statement"
+        : f.kind === "books"
+          ? "Sales report"
+          : "Payout report"
+    }`,
+    channel: f.kind === "settlement" ? f.provider.replace(/^HDFC /, "") : undefined,
+    range: `${rangeLabel(p.from, p.to)}`,
+    rows: f.rows.length,
+  }));
+  card.sample = sampleFiles;
+  await api.say(
+    `Add the bank statement and payout reports for **${p.label}**. Drop them in any order and I'll read each one and tell you what I found. Your sales come from Tally. No files handy? Use the sample.`
+  );
   const choice = await api.card(card, [
     { id: "go", label: "Reconcile", primary: true },
     { id: "sample", label: "Use the sample files" },

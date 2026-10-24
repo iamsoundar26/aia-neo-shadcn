@@ -413,17 +413,20 @@ const Message = ({
           title: undefined,
           pairs: [{ question: sheet.asked, answer: labelOf(chosen!) }],
         }
-    : m.card?.kind === "sources-upload" && !live && chosen?.id === "go"
+    : m.card?.kind === "sources-upload" &&
+        !live &&
+        (chosen?.id === "go" || chosen?.id === "sample")
       ? (() => {
           const card = m.card;
           const used = card.files.filter((f) => f.state !== "error");
           return {
             text: used.map((f) => f.name).join(", "),
             title: undefined,
-            pairs: used.map((f) => ({
-              question: card.slots.find((x) => x.id === f.slot)?.label,
-              answer: f.label ? `${f.name} · ${f.label}` : f.name,
-            })),
+            files: used,
+            heading:
+              chosen?.id === "sample"
+                ? `Using the sample files · ${used.length}`
+                : undefined,
           };
         })()
     : m.ask && !live
@@ -564,6 +567,8 @@ const Message = ({
         <ReplyBubble
           title={reply.title}
           pairs={"pairs" in reply ? reply.pairs : undefined}
+          files={"files" in reply ? reply.files : undefined}
+          heading={"heading" in reply ? reply.heading : undefined}
         >
           {reply.text}
         </ReplyBubble>

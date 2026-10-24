@@ -171,6 +171,8 @@ export type NeoCard =
       /** The run the files are for, shown on the card. */
       context?: { client: string; period: string; from: string; to: string };
       files: NeoUploadFile[];
+      /** What "Use the sample" puts in the chat: the sample's files, read. */
+      sample?: NeoUploadFile[];
       /** "Something else": anything Neo should know about these files. */
       note?: string;
     }
