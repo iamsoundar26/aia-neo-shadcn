@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowRight, Check, Files, Pause, Play } from "lucide-react";
+import { ArrowRight, Files, Pause, Play } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -100,78 +100,73 @@ const ReconWelcome = () => {
       <DialogContent
         onOpenAutoFocus={(event) => event.preventDefault()}
         className={cn(
-          "max-h-[calc(100vh-32px)] w-[calc(100vw-32px)] max-w-[800px] gap-0 overflow-y-auto overscroll-contain rounded-2xl border border-pi-line bg-background p-0 shadow-popover-shadow outline-none",
+          "max-h-[calc(100vh-32px)] w-[calc(100vw-32px)] max-w-[1180px] gap-0 overflow-y-auto overscroll-contain rounded-[20px] border border-pi-line bg-background p-0 shadow-popover-shadow outline-none",
           "[&>button]:right-2 [&>button]:top-2 [&>button]:z-10 [&>button]:grid [&>button]:h-8 [&>button]:w-8 [&>button]:place-items-center [&>button]:rounded-full [&>button]:bg-background [&>button]:text-pi-body [&>button]:opacity-100 [&>button]:shadow-contact [&>button:hover]:text-pi-ink [&>button]:data-[state=open]:bg-background"
         )}
       >
-        <div className="grid md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
-          {/* Who Neo is, what it gets you, and the way in. */}
-          <div className="order-2 flex flex-col justify-center px-6 py-6">
-            <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-pi-brand-border bg-pi-brand-tint px-2.5 py-0.5 text-[12px] font-semibold leading-4 text-pi-brand">
+        <div className="grid md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+          {/* Who Neo is, and the way in. */}
+          <div className="order-2 flex flex-col justify-center px-7 py-9 md:px-10 md:py-10">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-pi-brand-border bg-pi-brand-tint px-3 py-1 text-[12px] font-semibold leading-4 text-pi-brand">
               <span
                 aria-hidden
                 className="h-1.5 w-1.5 rounded-full bg-pi-brand"
               />
               {RECON_WELCOME.badge}
             </span>
-            <DialogTitle className="mt-4 text-pi-ink">
-              <span className="flex items-center gap-3 text-[24px] font-semibold leading-8 tracking-[-0.02em]">
+            <DialogTitle className="mt-6 text-pi-ink">
+              <span className="flex items-center gap-3.5 text-[32px] font-semibold leading-[1.1] tracking-[-0.02em]">
                 <span
                   aria-hidden
-                  className="neo-home-emblem grid h-10 w-10 flex-none place-items-center rounded-xl text-pi-brand"
+                  className="neo-home-emblem grid h-12 w-12 flex-none place-items-center rounded-[15px] text-pi-brand"
                 >
-                  <NeoStar className="h-5 w-5" />
+                  <NeoStar className="h-6 w-6" />
                 </span>
                 {RECON_WELCOME.title}
-                <span className="text-[16px] font-medium text-pi-body">
-                  {RECON_WELCOME.subtitle}
-                </span>
+              </span>
+              <span className="mt-2 block text-[20px] font-medium leading-[1.3] tracking-[-0.01em]">
+                {RECON_WELCOME.subtitle}
               </span>
             </DialogTitle>
-            <DialogDescription className="mt-2 text-[14px] leading-5 text-pi-body">
+            <DialogDescription className="mt-3 max-w-[360px] text-[14px] leading-[22px] text-pi-body">
               {RECON_WELCOME.body}
             </DialogDescription>
             <section
               aria-label={RECON_WELCOME.launch}
-              className="mt-4 rounded-xl border border-pi-line-2 bg-pi-head-bg p-4"
+              className="mt-7 rounded-2xl border border-[#E4E7F4] bg-[#F5F6FC] p-5"
             >
-              <p className="flex items-center gap-1.5 text-[12px] font-semibold uppercase leading-4 tracking-[0.08em] text-pi-brand">
-                <Files aria-hidden="true" className="h-4 w-4" strokeWidth={1.75} />
-                {RECON_WELCOME.launchLabel}
-              </p>
-              <h3 className="mt-1.5 text-[16px] font-semibold leading-6 text-pi-ink">
+              <div className="flex items-center gap-2.5">
+                <Files
+                  aria-hidden="true"
+                  className="h-5 w-5 text-pi-brand"
+                  strokeWidth={1.75}
+                />
+                <p className="text-body-4 font-semibold uppercase leading-4 tracking-[0.1em] text-pi-brand">
+                  {RECON_WELCOME.launchLabel}
+                </p>
+              </div>
+              <h3 className="mt-3 text-[20px] font-semibold leading-[26px] tracking-[-0.02em] text-pi-ink">
                 {RECON_WELCOME.launch}
               </h3>
-              <ul className="mt-2 flex flex-col gap-1.5">
-                {RECON_WELCOME.outcomes.map((o) => (
-                  <li
-                    key={o}
-                    className="flex items-start gap-2 text-[14px] leading-5 text-pi-ink-2"
-                  >
-                    <span
-                      aria-hidden
-                      className="mt-0.5 grid h-4 w-4 flex-none place-items-center rounded-full bg-pi-brand text-white"
-                    >
-                      <Check className="h-2.5 w-2.5" strokeWidth={3.5} />
-                    </span>
-                    {o}
-                  </li>
-                ))}
-              </ul>
+              <p className="mt-1.5 max-w-[380px] text-[14px] leading-[22px] text-pi-body">
+                {RECON_WELCOME.detail}
+              </p>
             </section>
-            <button
-              type="button"
-              onClick={start}
-              className="group mt-4 inline-flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 text-[14px] font-semibold text-primary-foreground transition-colors hover:bg-primary-hover active:bg-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border"
-            >
-              {RECON_WELCOME.primary}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </button>
+            <div className="mt-6 flex flex-col items-start gap-2">
+              <button
+                type="button"
+                onClick={start}
+                className="group inline-flex h-12 w-full items-center justify-between gap-3 rounded-xl bg-primary px-5 text-[14px] font-semibold text-primary-foreground shadow-pi-2 transition-[background-color,transform] hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border active:translate-y-px"
+              >
+                {RECON_WELCOME.primary}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </button>
+            </div>
           </div>
 
           {/* The native Tesseract render and playback controls. */}
           <div className="order-1 flex min-w-0 flex-col justify-center overflow-hidden bg-[#10162B]">
-            <div className="flex items-center px-4 py-3 text-[12px]">
+            <div className="flex items-center px-6 py-4 text-[12px]">
               <span className="font-semibold text-[#CAD3FF]">
                 How reconciliation works
               </span>
@@ -213,7 +208,7 @@ const ReconWelcome = () => {
               />
             )}
             {still ? (
-              <div className="px-4 pb-4 pt-1">
+              <div className="px-7 pb-6 pt-1">
                 <div className="mb-2 flex items-center justify-between gap-3">
                   <p className="text-body-3 font-semibold leading-5 text-[#F7F8FF]">
                     {RECON_WELCOME.media.listTitle}
@@ -234,7 +229,7 @@ const ReconWelcome = () => {
                 </ol>
               </div>
             ) : (
-              <div className="flex items-center gap-3 px-4 pb-3 pt-2">
+              <div className="flex items-center gap-3 px-7 pb-5 pt-2">
                 <span
                   aria-hidden
                   className="h-1.5 w-1.5 flex-none rounded-full bg-[#A6B2FF]"
