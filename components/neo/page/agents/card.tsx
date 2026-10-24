@@ -211,18 +211,18 @@ export const FeaturedAgent = ({
             >
               <Icon className="h-5 w-5" strokeWidth={1.8} />
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-pi-success-bg px-2.5 py-1 text-[11.5px] font-medium text-pi-success">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-pi-success-bg px-2.5 py-1 text-[12px] font-medium text-pi-success">
               <span className="h-1.5 w-1.5 rounded-full bg-pi-success-dot" />
               Available
             </span>
           </div>
-          <h3 className="mt-5 text-[24px] font-semibold leading-8 tracking-[-0.02em] text-pi-ink">
+          <h3 className="mt-5 text-[20px] font-semibold leading-7 tracking-[-0.01em] text-pi-ink">
             {copy.title}
           </h3>
           <p className="mt-2 max-w-[520px] text-[14px] leading-[22px] text-pi-body">
             {copy.description}
           </p>
-          <p className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-[12.5px] text-pi-body">
+          <p className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] text-pi-body">
             <span className="inline-flex items-center gap-1.5">
               <Access className="h-3.5 w-3.5 text-pi-faint" />
               {agent.access}
@@ -262,7 +262,7 @@ export const FeaturedAgent = ({
               disabled={!!unavailable}
               title={unavailable}
               onClick={() => void chat("Reconcile September")}
-              className="inline-flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-[13.5px] font-semibold text-primary-foreground shadow-pi-1 transition-colors hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pi-brand focus-visible:ring-offset-2 disabled:opacity-50"
+              className="inline-flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-[14px] font-semibold text-primary-foreground shadow-pi-1 transition-colors hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pi-brand focus-visible:ring-offset-2 disabled:opacity-50"
             >
               <Play className="h-3.5 w-3.5" fill="currentColor" />
               Run reconciliation
@@ -271,7 +271,7 @@ export const FeaturedAgent = ({
               href={agentHref(agent.id)}
               scroll={false}
               aria-current={selected ? "true" : undefined}
-              className="group inline-flex h-10 items-center gap-1.5 rounded-lg px-3 text-[13.5px] font-medium text-pi-ink-2 transition-colors hover:bg-pi-row-hover hover:text-pi-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border"
+              className="group inline-flex h-10 items-center gap-1.5 rounded-lg px-3 text-[14px] font-medium text-pi-ink-2 transition-colors hover:bg-pi-row-hover hover:text-pi-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border"
             >
               How it works
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transform-none" />
@@ -329,11 +329,11 @@ export const AgentRow = ({
         <span className="block truncate text-[14px] font-semibold leading-5 text-pi-ink">
           {copy.title}
         </span>
-        <span className="block truncate text-[12.5px] leading-[18px] text-pi-body">
+        <span className="block truncate text-[12px] leading-[18px] text-pi-body">
           {copy.description}
         </span>
       </span>
-      <span className="hidden min-w-0 items-center gap-1.5 text-[12.5px] text-pi-body lg:flex">
+      <span className="hidden min-w-0 items-center gap-1.5 text-[12px] text-pi-body lg:flex">
         <span className="truncate">
           {agent.sources.map((s) => s.label).join(" + ")}
         </span>
@@ -344,11 +344,11 @@ export const AgentRow = ({
       </span>
       <span className="hidden lg:block">
         {beta ? (
-          <span className="inline-flex items-center rounded-full bg-pi-brand-tint px-2.5 py-1 text-[11.5px] font-medium text-pi-brand">
+          <span className="inline-flex items-center rounded-full bg-pi-brand-tint px-2.5 py-1 text-[12px] font-medium text-pi-brand">
             Limited beta
           </span>
         ) : (
-          <span className="inline-flex items-center gap-1.5 text-[12.5px] text-pi-faint">
+          <span className="inline-flex items-center gap-1.5 text-[12px] text-pi-faint">
             <Clock3 className="h-3.5 w-3.5" />
             {when}
           </span>
@@ -391,20 +391,20 @@ export const AgentTile = ({
     >
       <span
         aria-hidden
-        className="grid h-12 w-12 flex-none place-items-center rounded-xl border border-pi-line-2 bg-pi-head-bg text-pi-brand"
+        className="grid h-10 w-10 flex-none place-items-center rounded-xl border border-pi-line-2 bg-pi-head-bg text-pi-brand"
       >
-        <Icon className="h-[22px] w-[22px]" strokeWidth={1.7} />
+        <Icon className="h-5 w-5" strokeWidth={1.7} />
       </span>
       <span className="min-w-0 flex-1">
         <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-          <span className="text-[16px] font-semibold leading-6 text-pi-ink">
+          <span className="text-[14px] font-semibold leading-5 text-pi-ink">
             {copy.title}
           </span>
           <span className="inline-flex h-5 items-center rounded-full bg-pi-fill px-2 text-[12px] font-medium leading-4 text-pi-body">
             Upcoming
           </span>
         </span>
-        <span className="mt-1 line-clamp-2 block text-[14px] leading-6 text-pi-body">
+        <span className="mt-1 line-clamp-2 block text-[14px] leading-5 text-pi-body">
           {copy.description}
         </span>
       </span>

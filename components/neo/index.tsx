@@ -259,7 +259,7 @@ const NeoPanel = () => {
             />
           ) : (
             <div className="min-h-0 flex-1 overflow-y-auto px-5 py-6">
-              <p className="neo-reading text-[22px] leading-8 text-pi-ink">
+              <p className="neo-reading text-[20px] leading-7 text-pi-ink">
                 What should Neo reconcile?
               </p>
               <ul className="mt-5 flex flex-col">

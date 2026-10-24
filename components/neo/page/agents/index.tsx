@@ -87,7 +87,7 @@ const Directory = ({
           <div className="mx-auto max-w-[1080px] px-4 pb-16 pt-10 sm:px-8">
             <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
               <div className="min-w-0">
-                <h2 className="text-[30px] font-semibold leading-9 tracking-[-0.03em] text-pi-ink">
+                <h2 className="text-[24px] font-semibold leading-8 tracking-[-0.02em] text-pi-ink">
                   Agents
                 </h2>
                 <p className="mt-1.5 max-w-[520px] text-[14px] leading-[22px] text-pi-body">
@@ -154,7 +154,7 @@ const Directory = ({
                   >
                     Up next
                   </h3>
-                  <span className="text-[12.5px] text-pi-faint">
+                  <span className="text-[12px] text-pi-faint">
                     Open a card to see the plan
                   </span>
                 </div>

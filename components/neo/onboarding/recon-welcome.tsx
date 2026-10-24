@@ -115,7 +115,7 @@ const ReconWelcome = () => {
               {RECON_WELCOME.badge}
             </span>
             <DialogTitle className="mt-6 text-pi-ink">
-              <span className="flex items-center gap-3.5 text-[44px] font-semibold leading-[1.05] tracking-[-0.04em] md:text-[48px]">
+              <span className="flex items-center gap-3.5 text-[32px] font-semibold leading-[1.1] tracking-[-0.02em]">
                 <span
                   aria-hidden
                   className="neo-home-emblem grid h-12 w-12 flex-none place-items-center rounded-[15px] text-pi-brand"
@@ -124,7 +124,7 @@ const ReconWelcome = () => {
                 </span>
                 {RECON_WELCOME.title}
               </span>
-              <span className="mt-2 block text-[21px] font-medium leading-[1.3] tracking-[-0.02em] md:text-[23px]">
+              <span className="mt-2 block text-[20px] font-medium leading-[1.3] tracking-[-0.01em]">
                 {RECON_WELCOME.subtitle}
               </span>
             </DialogTitle>

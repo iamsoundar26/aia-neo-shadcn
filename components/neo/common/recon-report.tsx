@@ -225,7 +225,7 @@ const ReconReport = ({ card }: Props) => {
           type="button"
           onClick={download}
           disabled={!wb || !!busy}
-          className="flex h-8 flex-none items-center gap-1.5 rounded-sm border border-pi-line-2 bg-background px-3 text-[12.5px] font-semibold text-pi-ink shadow-contact transition-colors hover:bg-pi-fill focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border disabled:opacity-60"
+          className="flex h-8 flex-none items-center gap-1.5 rounded-sm border border-pi-line-2 bg-background px-3 text-[12px] font-semibold text-pi-ink shadow-contact transition-colors hover:bg-pi-fill focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border disabled:opacity-60"
         >
           {busy === "download" ? (
             <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -310,7 +310,7 @@ const ReconReport = ({ card }: Props) => {
               aria-selected={on}
               onClick={() => setSheet(w.name)}
               className={cn(
-                "-mt-px flex h-9 flex-none items-center gap-1.5 border-t-2 px-3 text-[12.5px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border",
+                "-mt-px flex h-9 flex-none items-center gap-1.5 border-t-2 px-3 text-[12px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border",
                 on
                   ? "border-pi-brand bg-background text-pi-ink"
                   : "border-transparent text-pi-body hover:text-pi-ink"
@@ -360,7 +360,7 @@ const Grid = ({ ws, editable, value, onEdit, bad }: GridProps) => {
   return (
     <table
       style={{ width: 40 + cols.reduce((n, c) => n + c.width, 0) }}
-      className="table-fixed border-separate border-spacing-0 text-[12.5px] leading-[18px] text-pi-ink"
+      className="table-fixed border-separate border-spacing-0 text-[12px] leading-[18px] text-pi-ink"
     >
       <colgroup>
         <col style={{ width: 40 }} />
@@ -447,7 +447,7 @@ const Grid = ({ ws, editable, value, onEdit, bad }: GridProps) => {
                           value={val}
                           onChange={(e) => onEdit(r, col.n, e.target.value)}
                           aria-label={`Row ${r}, column ${LETTERS(col.n)}`}
-                          className="h-full min-h-[26px] w-full cursor-pointer bg-transparent px-1.5 text-[12.5px] text-pi-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pi-brand"
+                          className="h-full min-h-[26px] w-full cursor-pointer bg-transparent px-1.5 text-[12px] text-pi-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pi-brand"
                         >
                           <option value="">—</option>
                           {list.map((o) => (
@@ -464,7 +464,7 @@ const Grid = ({ ws, editable, value, onEdit, bad }: GridProps) => {
                           placeholder={
                             bad.has(id) ? "A reason is required" : ""
                           }
-                          className="h-full min-h-[26px] w-full bg-transparent px-2 text-[12.5px] text-pi-ink placeholder:text-pi-danger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pi-brand"
+                          className="h-full min-h-[26px] w-full bg-transparent px-2 text-[12px] text-pi-ink placeholder:text-pi-danger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pi-brand"
                         />
                       )
                     ) : (

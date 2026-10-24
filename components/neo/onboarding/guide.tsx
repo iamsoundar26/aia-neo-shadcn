@@ -156,7 +156,7 @@ const GuideCoach = (_props: { onPrompt?: (p: string) => void }) => {
           <span className="mt-0.5 grid h-6 w-6 flex-none place-items-center rounded-md bg-pi-brand text-white">
             <NeoStar className="h-3.5 w-3.5" />
           </span>
-          <p className="min-w-0 flex-1 text-[16px] font-semibold leading-6 text-pi-ink">
+          <p className="min-w-0 flex-1 text-[14px] font-semibold leading-5 text-pi-ink">
             {coach.body}
           </p>
           <button

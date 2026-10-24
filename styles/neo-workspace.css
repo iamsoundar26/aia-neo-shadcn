@@ -127,7 +127,7 @@ html[data-neo-open] [data-sonner-toaster][data-y-position="bottom"] {
 .neo-prose {
   font-family: var(--font-family-reading);
   font-optical-sizing: auto;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--pi-ink);
   font-variant-numeric: lining-nums tabular-nums;

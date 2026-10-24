@@ -116,7 +116,7 @@ const Line = ({
   const thought = s.kind === "thought";
   return (
     <li
-      className="neo-step-in flex gap-2.5 text-[12.5px] leading-5"
+      className="neo-step-in flex gap-2.5 text-[12px] leading-5"
       style={{ animationDelay: `${Math.min(i, 8) * 35}ms` }}
     >
       <span
@@ -282,7 +282,7 @@ const Reasoning = ({ message: m, onRef, current }: Props) => {
                   <li
                     key={`${opened}-${n}`}
                     style={{ animationDelay: `${Math.min(i, 8) * 30}ms` }}
-                    className="neo-step-in inline-flex h-6 max-w-full items-center gap-1.5 rounded-md border border-pi-line bg-background px-2 text-[11.5px] text-pi-ink-2"
+                    className="neo-step-in inline-flex h-6 max-w-full items-center gap-1.5 rounded-md border border-pi-line bg-background px-2 text-[12px] text-pi-ink-2"
                   >
                     <FileText className="h-3 w-3 flex-none text-pi-faint" />
                     <span className="truncate">{n}</span>

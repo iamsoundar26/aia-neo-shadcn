@@ -293,7 +293,7 @@ const NeoNav = ({ page, onPage, folded, onToggle, onHide }: Props) => {
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={(e) => e.key === "Escape" && setQuery("")}
               placeholder="Search chats"
-              className="min-w-0 flex-1 border-0 !bg-transparent p-0 text-[12.5px] text-pi-ink shadow-none placeholder:text-pi-faint focus:ring-0 focus-visible:outline-none"
+              className="min-w-0 flex-1 border-0 !bg-transparent p-0 text-[12px] text-pi-ink shadow-none placeholder:text-pi-faint focus:ring-0 focus-visible:outline-none"
             />
             {query && (
               <button
@@ -310,7 +310,7 @@ const NeoNav = ({ page, onPage, folded, onToggle, onHide }: Props) => {
       )}
       <div className="min-h-0 flex-1 overflow-y-auto px-3 pb-4">
         {grouped.length === 0 && (
-          <p className="flex items-center gap-2 truncate px-2.5 py-2 text-[12.5px] text-pi-faint">
+          <p className="flex items-center gap-2 truncate px-2.5 py-2 text-[12px] text-pi-faint">
             {query ? (
               <Search className="h-3.5 w-3.5 flex-none" />
             ) : (
@@ -321,7 +321,7 @@ const NeoNav = ({ page, onPage, folded, onToggle, onHide }: Props) => {
         )}
         {grouped.map(([group, list]) => (
           <section key={group} className="mt-4 first:mt-2">
-            <h3 className="px-2.5 pb-1 text-[11.5px] font-medium text-pi-faint">
+            <h3 className="px-2.5 pb-1 text-[12px] font-medium text-pi-faint">
               {group}
             </h3>
             <ul>
@@ -410,7 +410,7 @@ const ChatRow = ({
         onClick={onOpen}
         className={cn(
           ROW,
-          "h-[30px] pr-8 text-[12.5px] disabled:opacity-50",
+          "h-[30px] pr-8 text-[12px] disabled:opacity-50",
           current
             ? "bg-pi-fill font-medium text-pi-ink"
             : "text-pi-body hover:bg-pi-fill hover:text-pi-ink"

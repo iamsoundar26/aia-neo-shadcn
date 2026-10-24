@@ -33,7 +33,7 @@ import AgentsBar from "./bar";
 type Props = { company: string };
 
 const Code = ({ children }: { children: React.ReactNode }) => (
-  <code className="rounded-xs border border-pi-line bg-pi-head-bg px-1.5 text-[11.5px] leading-[18px] text-pi-body">
+  <code className="rounded-xs border border-pi-line bg-pi-head-bg px-1.5 text-[12px] leading-[18px] text-pi-body">
     {children}
   </code>
 );
@@ -149,7 +149,7 @@ const ReconAgent = ({ company }: Props) => {
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                   <h2
                     id="agent-name"
-                    className="neo-reading text-[30px] font-semibold leading-9 tracking-[-0.015em] text-pi-ink"
+                    className="neo-reading text-[24px] font-semibold leading-8 tracking-[-0.02em] text-pi-ink"
                   >
                     {agent.name}
                   </h2>
@@ -171,7 +171,7 @@ const ReconAgent = ({ company }: Props) => {
                     {status}
                   </span>
                 </div>
-                <p className="mt-1.5 max-w-[600px] text-[14.5px] leading-[23px] text-pi-body">
+                <p className="mt-1.5 max-w-[600px] text-[14px] leading-[23px] text-pi-body">
                   {agent.goal}
                 </p>
               </div>
@@ -224,7 +224,7 @@ const ReconAgent = ({ company }: Props) => {
                       </span>
                       <div className="min-w-0 flex-1 pt-1">
                         <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
-                          <p className="text-[14.5px] font-semibold leading-5 text-pi-ink">
+                          <p className="text-[14px] font-semibold leading-5 text-pi-ink">
                             {j.title}
                           </p>
                           <span
@@ -260,7 +260,7 @@ const ReconAgent = ({ company }: Props) => {
                               key={k.id}
                               className="mt-3 rounded-xl border border-pi-line bg-background px-4 py-3"
                             >
-                              <p className="flex items-baseline gap-2 text-[13.5px] font-semibold leading-5 text-pi-ink">
+                              <p className="flex items-baseline gap-2 text-[14px] font-semibold leading-5 text-pi-ink">
                                 <span className="code text-[12px] text-pi-brand">
                                   {k.id}
                                 </span>
@@ -309,7 +309,7 @@ const ReconAgent = ({ company }: Props) => {
                     className="flex items-start gap-2.5 rounded-xl border border-pi-line bg-background px-3.5 py-2.5"
                   >
                     <Ban className="mt-[3px] h-3.5 w-3.5 flex-none text-pi-danger" />
-                    <span className="min-w-0 flex-1 text-[13.5px] leading-5 text-pi-ink">
+                    <span className="min-w-0 flex-1 text-[14px] leading-5 text-pi-ink">
                       {n.text}
                     </span>
                     {n.rule && <Code>{n.rule}</Code>}
@@ -330,7 +330,7 @@ const ReconAgent = ({ company }: Props) => {
                 disabled={!!unavailable}
                 title={unavailable}
                 onClick={() => void chat("Reconcile September")}
-                className="inline-flex h-10 items-center justify-center gap-1.5 rounded-md bg-primary px-4 text-[13.5px] font-semibold text-primary-foreground hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center gap-1.5 rounded-md bg-primary px-4 text-[14px] font-semibold text-primary-foreground hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border disabled:opacity-50"
               >
                 Reconcile September
                 <ArrowRight className="h-4 w-4" />
@@ -373,10 +373,10 @@ const ReconAgent = ({ company }: Props) => {
                       <FileSpreadsheet className="h-4 w-4" />
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="block truncate text-[12.5px] font-semibold leading-4 text-pi-ink">
+                      <span className="block truncate text-[12px] font-semibold leading-4 text-pi-ink">
                         {reportName(run, v)}
                       </span>
-                      <span className="block text-[11.5px] leading-4 text-pi-body">
+                      <span className="block text-[12px] leading-4 text-pi-body">
                         Latest report · version {v.n}
                       </span>
                     </span>

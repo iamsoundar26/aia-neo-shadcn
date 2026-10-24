@@ -53,13 +53,11 @@ const TOKENS = [
 ];
 
 const TYPE = [
-  ["text-h5", "24 / 30", "Page and empty-state headings", "Hi Soundar, what can I help you with?"],
-  ["text-h6", "20 / 24", "Card titles, document headings", "September 2026 reconciliation"],
-  ["text-label-1", "16 / 22", "Section labels", "Payout reports"],
-  ["text-body-2", "16 / 24", "Neo's answers (Source Serif 4)", "Your books match the bank for 28 of 30 days."],
-  ["text-body-3", "14 / 20", "Everything on the prompt box: questions, rows, buttons", "Neo only reads your files and never changes your books."],
-  ["text-body-4", "12 / 16", "Notes, hints, counts", "1–30 Sep · 99% sure"],
-  ["text-caption-1", "10 / 12", "Tags only", "ILLUSTRATIVE RULE"],
+  ["text-h5", "24 / 30", "Page headings, the home greeting", "Hi Soundar, what can I help you with?"],
+  ["text-h6", "20 / 24", "Card and document titles", "Three-way reconciliation"],
+  ["text-body-2", "16 / 24", "Panel titles, section headings", "Payout reports"],
+  ["text-body-3", "14 / 20", "Everything else: answers, questions, rows, buttons", "Neo only reads your files and never changes your books."],
+  ["text-body-4", "12 / 16", "Notes, hints, counts, tags", "1–30 Sep · 99% sure"],
 ];
 
 const f = (p: Partial<NeoUploadFile> & Pick<NeoUploadFile, "slot" | "name">): NeoUploadFile => ({
@@ -283,23 +281,15 @@ const NeoDesign = () => (
         </div>
       </div>
 
-      <H id="type" sub="Three families, each with one job. Open Sans is the interface; Source Serif 4 is Neo's reading voice; IBM Plex Mono is for IDs and amounts in documents.">
+      <H id="type" sub="One typeface, Open Sans, for everything: the interface, Neo's answers and the numbers. Five sizes cover the product, and nothing sits between them.">
         Typography
       </H>
-      <div className="mt-5 grid gap-3 sm:grid-cols-3">
-        {[
-          ["Open Sans", "var(--font-family-primary)", "Interface", "Aa 0123 ₹"],
-          ["Source Serif 4", "var(--font-family-reading)", "Neo's answers", "Aa 0123 ₹"],
-          ["IBM Plex Mono", "var(--font-family-mono)", "Voucher IDs, amounts", "RCT/4137 17,151.00"],
-        ].map(([n, ff, job, sample]) => (
-          <div key={n} className="rounded-xl border border-border p-4">
-            <p className="text-h6" style={{ fontFamily: ff }}>
-              {sample}
-            </p>
-            <p className="mt-2 text-label-2 font-semibold">{n}</p>
-            <p className="text-body-4 text-muted-foreground">{job}</p>
-          </div>
-        ))}
+      <div className="mt-5 rounded-xl border border-border p-4">
+        <p className="text-h5" style={{ fontFamily: "var(--font-family-primary)" }}>
+          Aa 0123 ₹ RCT/4137 17,151.00
+        </p>
+        <p className="mt-2 text-label-2 font-semibold">Open Sans</p>
+        <p className="text-body-4 text-muted-foreground">Regular 400, medium 500, semibold 600. Numbers are tabular wherever they line up.</p>
       </div>
       <div className="mt-4 overflow-hidden rounded-xl border border-border">
         {TYPE.map(([cls, size, use, sample], i) => (
@@ -309,7 +299,7 @@ const NeoDesign = () => (
               <p className="text-body-4 text-muted-foreground">{size}</p>
             </div>
             <div className="min-w-0 flex-1">
-              <p className={`${cls} ${cls === "text-body-2" ? "[font-family:var(--font-family-reading)]" : ""} truncate`}>{sample}</p>
+              <p className={`${cls} truncate`}>{sample}</p>
               <p className="text-body-4 text-muted-foreground">{use}</p>
             </div>
           </div>

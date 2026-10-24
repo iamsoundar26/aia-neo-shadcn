@@ -142,7 +142,7 @@ export const DocStrip = ({
             aria-pressed={open}
             title={meta}
             className={cn(
-              "flex h-8 max-w-full items-center gap-1.5 rounded-md border bg-background px-2.5 text-[12.5px] font-medium text-pi-ink transition-colors hover:bg-pi-fill focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border",
+              "flex h-8 max-w-full items-center gap-1.5 rounded-md border bg-background px-2.5 text-[12px] font-medium text-pi-ink transition-colors hover:bg-pi-fill focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border",
               open
                 ? "border-pi-brand-border bg-pi-brand-tint"
                 : "border-pi-line"

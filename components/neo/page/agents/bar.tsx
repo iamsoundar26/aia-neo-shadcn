@@ -38,7 +38,7 @@ const AgentsBar = ({ agent }: Props) => (
     ) : (
       <>
         <h1 className="text-[14px] font-semibold text-pi-ink">Agents</h1>
-        <span className="grid h-5 min-w-5 place-items-center rounded-full bg-pi-fill px-1.5 text-[11.5px] font-semibold tabular-nums text-pi-body">
+        <span className="grid h-5 min-w-5 place-items-center rounded-full bg-pi-fill px-1.5 text-[12px] font-semibold tabular-nums text-pi-body">
           {MOCK_AGENTS.length}
         </span>
       </>

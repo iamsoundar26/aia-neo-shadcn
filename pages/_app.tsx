@@ -80,10 +80,9 @@ export default function App({ Component, pageProps }: AppProps) {
           --font-family-primary:
             ${open_sans.style.fontFamily}, system-ui, sans-serif;
           --font-family-display: ${open_sans.style.fontFamily};
-          --font-family-mono: ${plexMono.style.fontFamily};
-          --font-family-reading:
-            ${sourceSerif.style.fontFamily}, ${sourceSerifExt.style.fontFamily},
-            Georgia, serif;
+          /* One typeface across the product: reading and mono are Open Sans too. */
+          --font-family-mono: var(--font-family-primary);
+          --font-family-reading: var(--font-family-primary);
         }
       `}</style>
       {/* GuideProvider is mounted in production's _app.tsx too — a journey

@@ -391,8 +391,8 @@ const Composer = forwardRef<HTMLTextAreaElement, Props>(
                   ? "placeholder:text-pi-faint disabled:opacity-75"
                   : "placeholder:text-pi-faint",
                 page
-                  ? "max-h-40 min-h-[32px] px-3 py-1 text-[16px] leading-6 sm:text-body-2"
-                  : "max-h-44 min-h-[36px] py-1.5 text-[16px] leading-6 sm:text-[13.5px]"
+                  ? "max-h-40 min-h-[32px] px-3 py-1 text-[16px] leading-6 sm:text-[14px] sm:leading-5"
+                  : "max-h-44 min-h-[36px] py-1.5 text-[16px] leading-6 sm:text-[14px]"
               )}
             />
 

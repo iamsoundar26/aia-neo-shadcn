@@ -195,7 +195,7 @@ const NeoChat = () => {
                   d="M20 1c1.6 10.6 8.4 17.4 19 19-10.6 1.6-17.4 8.4-19 19-1.6-10.6-8.4-17.4-19-19 10.6-1.6 17.4-8.4 19-19z"
                 />
               </svg>
-              <h2 className="neo-home-rise relative mt-[26px] text-center text-[24px] [@media(max-height:700px)]:mt-4 font-semibold leading-[1.15] tracking-[-0.02em] text-pi-ink [animation-delay:60ms] [text-wrap:balance] sm:text-[28px]">
+              <h2 className="neo-home-rise relative mt-[26px] text-center text-[20px] [@media(max-height:700px)]:mt-4 font-semibold leading-[1.2] tracking-[-0.01em] text-pi-ink [animation-delay:60ms] [text-wrap:balance] sm:text-[24px]">
                 <span className="text-pi-brand">Hi {NEO_USER.firstName},</span>{" "}
                 what can I help you with?
               </h2>

@@ -37,7 +37,7 @@ export const AGENT_ICON: Record<string, typeof Lock> = {
 };
 
 const HEAD =
-  "text-[11.5px] font-semibold uppercase tracking-[0.06em] text-pi-faint";
+  "text-[12px] font-semibold uppercase tracking-[0.06em] text-pi-faint";
 
 /**
  * An agent's details beside the directory (21 Oct 2026, after the AIA
@@ -94,7 +94,7 @@ const AgentPanel = ({ agent, company, onClose }: Props) => {
             Run agent
           </button>
         ) : (
-          <p className="flex h-11 w-full items-center justify-center rounded-md border border-dashed border-pi-line-2 text-[13.5px] font-medium text-pi-body">
+          <p className="flex h-11 w-full items-center justify-center rounded-md border border-dashed border-pi-line-2 text-[14px] font-medium text-pi-body">
             {agent.eta || "Coming soon"}
           </p>
         )}
@@ -112,7 +112,7 @@ const AgentPanel = ({ agent, company, onClose }: Props) => {
       <div className="min-h-0 flex-1 overflow-y-auto px-5 pb-8 pt-6">
         <section>
           <h3 className={HEAD}>What this agent does</h3>
-          <p className="mt-2 text-[14.5px] leading-[23px] text-pi-ink">
+          <p className="mt-2 text-[14px] leading-[23px] text-pi-ink">
             {agent.goal}
           </p>
         </section>
@@ -141,7 +141,7 @@ const AgentPanel = ({ agent, company, onClose }: Props) => {
             {agent.sources.map((s) => (
               <li
                 key={s.label}
-                className="flex items-center justify-between gap-3 border-t border-pi-line px-3 py-2 text-[13.5px] first:border-t-0"
+                className="flex items-center justify-between gap-3 border-t border-pi-line px-3 py-2 text-[14px] first:border-t-0"
               >
                 <span className="font-medium text-pi-ink">{s.label}</span>
                 <span className="text-body-4 text-pi-faint">{s.from}</span>
@@ -162,7 +162,7 @@ const AgentPanel = ({ agent, company, onClose }: Props) => {
             {agent.never.map((n) => (
               <li
                 key={n}
-                className="flex gap-2.5 text-[13.5px] leading-5 text-pi-ink-2"
+                className="flex gap-2.5 text-[14px] leading-5 text-pi-ink-2"
               >
                 <Ban className="mt-[3px] h-3.5 w-3.5 flex-none text-pi-danger" />
                 {n.charAt(0).toUpperCase() + n.slice(1)}
