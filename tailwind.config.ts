@@ -79,6 +79,7 @@ const config = {
           "surface-panel": "var(--pi-surface-panel)",
           "sunken": "var(--pi-sunken)",
           "fill": "var(--pi-fill)",
+          "bubble": "var(--pi-bubble)",
           "fill-2": "var(--pi-fill-2)",
           "row-hover": "var(--pi-row-hover)",
           "head-bg": "var(--pi-head-bg)",

@@ -532,6 +532,8 @@ html {
   --pi-surface-panel: var(--palette-neutral-0);
   --pi-sunken: var(--palette-blue-50);
   --pi-fill: var(--palette-neutral-50);
+  /* The user's bubble and a question's header: a softer grey than a hover. */
+  --pi-bubble: color-mix(in srgb, var(--palette-neutral-50) 50%, #fff);
   --pi-fill-2: var(--palette-neutral-100);
   --pi-row-hover: var(--palette-blue-50);
   --pi-head-bg: var(--palette-blue-50);

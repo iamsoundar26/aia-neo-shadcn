@@ -155,7 +155,7 @@ const UserMessage = ({
           )}
         </ul>
       )}
-      <div className="relative max-w-full rounded-2xl bg-pi-fill px-4 py-2.5">
+      <div className="relative max-w-full rounded-2xl bg-pi-bubble px-4 py-2.5">
         <p
           ref={body}
           className={cn(
