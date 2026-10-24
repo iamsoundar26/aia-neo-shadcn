@@ -4,8 +4,14 @@ import {
   ArrowRight,
   BookOpen,
   ChevronRight,
+  CalendarCheck,
   Clock3,
   FileCheck2,
+  FilePlus,
+  GitCompareArrows,
+  Percent,
+  Receipt,
+  Search,
   Files,
   Handshake,
   Landmark,
@@ -61,6 +67,43 @@ const COPY: Record<
       "Turn supplier bills into draft entries for you to review and approve.",
     icon: ReceiptText,
   },
+};
+
+COPY["invoice-assistant"] = {
+  title: "Invoice Assistant",
+  description:
+    "Drafts sales invoices from plain language and posts them after your confirmation.",
+  icon: FilePlus,
+};
+COPY["payables-review"] = {
+  title: "Payables Review",
+  description:
+    "Checks purchase bills against purchase orders and goods receipts before they are paid.",
+  icon: GitCompareArrows,
+};
+COPY["receivables-followup"] = {
+  title: "Receivables Follow-up",
+  description:
+    "Finds overdue and unpaid customer invoices and prepares a follow-up list for you.",
+  icon: Receipt,
+};
+COPY["ledger-voucher-search"] = {
+  title: "Ledger and Voucher Search",
+  description:
+    "Finds ledgers, groups, items and vouchers, and opens their details.",
+  icon: Search,
+};
+COPY["gst-review"] = {
+  title: "GST Review",
+  description:
+    "Checks tax treatment on invoices and flags missing or inconsistent GST details.",
+  icon: Percent,
+};
+COPY["month-end-close"] = {
+  title: "Month-End Close Assistant",
+  description:
+    "Lists what is still open before the period can be closed and tracks it to completion.",
+  icon: CalendarCheck,
 };
 
 const copyOf = (a: AgentProfile) =>
@@ -312,6 +355,59 @@ export const AgentRow = ({
         )}
       </span>
       <ChevronRight className="h-4 w-4 text-pi-faint transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-pi-body motion-reduce:transform-none" />
+    </Link>
+  );
+};
+
+/**
+ * An agent still to come, as a card in a two-column grid (24 Oct 2026):
+ * icon tile, name with its Upcoming tag, two lines of what it does. Opens
+ * its plans in the panel beside the cards, as the rows did.
+ */
+export const AgentTile = ({
+  agent,
+  selected,
+  index = 0,
+}: {
+  agent: AgentProfile;
+  selected?: boolean;
+  index?: number;
+}) => {
+  const copy = copyOf(agent);
+  const Icon = copy.icon;
+  return (
+    <Link
+      href={agentHref(agent.id)}
+      scroll={false}
+      aria-current={selected ? "true" : undefined}
+      data-testid="agent-tile"
+      style={{ animationDelay: `${120 + index * 40}ms` }}
+      className={cn(
+        "neo-agent-rise group flex h-full gap-4 rounded-2xl border p-4 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pi-brand-border sm:p-5",
+        selected
+          ? "border-pi-brand-border bg-pi-head-bg"
+          : "border-pi-line-2 bg-background hover:border-pi-brand-border hover:bg-pi-head-bg"
+      )}
+    >
+      <span
+        aria-hidden
+        className="grid h-12 w-12 flex-none place-items-center rounded-xl border border-pi-line-2 bg-pi-head-bg text-pi-brand"
+      >
+        <Icon className="h-[22px] w-[22px]" strokeWidth={1.7} />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+          <span className="text-[16px] font-semibold leading-6 text-pi-ink">
+            {copy.title}
+          </span>
+          <span className="inline-flex h-5 items-center rounded-full bg-pi-fill px-2 text-[12px] font-medium leading-4 text-pi-body">
+            Upcoming
+          </span>
+        </span>
+        <span className="mt-1 line-clamp-2 block text-[14px] leading-6 text-pi-body">
+          {copy.description}
+        </span>
+      </span>
     </Link>
   );
 };

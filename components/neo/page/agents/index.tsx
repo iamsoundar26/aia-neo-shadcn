@@ -14,7 +14,7 @@ import {
 import type { AgentCategory, AgentProfile } from "@/types/pages/neo/agents";
 import { cn } from "@/lib/utils";
 import AgentsBar from "./bar";
-import { AgentRow, FeaturedAgent } from "./card";
+import { AgentTile, FeaturedAgent } from "./card";
 import { JOBS } from "@/config/pages/neo/skills";
 import ReconAgent from "./recon";
 import AgentPanel from "./panel";
@@ -26,6 +26,8 @@ const FILTERS: ("All" | AgentCategory)[] = [
   "All",
   "Reconciliation",
   "Bookkeeping",
+  "Receivables",
+  "Compliance",
 ];
 
 /**
@@ -153,13 +155,13 @@ const Directory = ({
                     Up next
                   </h3>
                   <span className="text-[12.5px] text-pi-faint">
-                    In beta and on the roadmap
+                    Open a card to see the plan
                   </span>
                 </div>
-                <ul className="mt-3 divide-y divide-pi-line-2 overflow-hidden rounded-xl border border-pi-line-2">
+                <ul className="mt-3 grid gap-4 sm:grid-cols-2">
                   {upNext.map((a, i) => (
                     <li key={a.id}>
-                      <AgentRow
+                      <AgentTile
                         agent={a}
                         index={i}
                         selected={open?.id === a.id}

@@ -1,6 +1,4 @@
 import React from "react";
-import { Check } from "lucide-react";
-import { NeoStar } from "@/components/icons";
 
 type Pair = { question?: string; answer: string };
 
@@ -16,11 +14,10 @@ type Props = {
 };
 
 /**
- * An answered question (23 Oct 2026). Sandeep: a pick read back as a grey
- * bubble looked exactly like something typed. So an answer is a record, not
- * a message: one ruled card on Neo's side of the thread, Neo's question on
- * the left of each row and the pick on the right as a ticked chip. Typed
- * messages keep the grey bubble; picks never wear it.
+ * An answered question (24 Oct 2026): the person's reply, so it sits on
+ * their side in the same bubble as anything they type. The question Neo
+ * asked is small and muted on top; what they picked or said is under it.
+ * Several answers from one sheet stack in one bubble.
  */
 const ReplyBubble = ({ children, title, pairs }: Props) => {
   const rows: Pair[] =
@@ -35,37 +32,21 @@ const ReplyBubble = ({ children, title, pairs }: Props) => {
     <section
       aria-label="Your answer"
       title={title}
-      className="neo-reply-in overflow-hidden rounded-xl border border-pi-line bg-background"
+      data-testid="reply-bubble"
+      className="neo-reply-in ml-auto flex w-fit max-w-[88%] flex-col gap-3 self-end rounded-2xl bg-pi-bubble px-4 py-2.5"
     >
-      <ul className="divide-y divide-pi-line">
-        {rows.map((r, i) => (
-          <li
-            key={`${r.question}-${i}`}
-            className="flex flex-wrap items-center gap-x-4 gap-y-2 px-3.5 py-2.5"
-          >
-            <span className="flex min-w-0 flex-1 basis-[220px] items-start gap-2.5">
-              <span
-                aria-hidden
-                className="mt-px grid h-5 w-5 flex-none place-items-center rounded-md bg-pi-brand-tint text-pi-brand"
-              >
-                <NeoStar className="h-3 w-3" />
-              </span>
-              <span className="min-w-0 text-body-3 leading-5 text-pi-body">
-                {r.question || "Your choice"}
-              </span>
-            </span>
-            <span className="ml-auto inline-flex max-w-full items-center gap-1.5 rounded-full border border-pi-brand-border bg-pi-brand-tint py-1 pl-1.5 pr-3 text-[12.5px] font-medium leading-[18px] text-pi-ink">
-              <span
-                aria-hidden
-                className="grid h-4 w-4 flex-none place-items-center rounded-full bg-pi-brand text-white"
-              >
-                <Check className="h-2.5 w-2.5" strokeWidth={3} />
-              </span>
-              <span className="min-w-0 truncate">{r.answer}</span>
-            </span>
-          </li>
-        ))}
-      </ul>
+      {rows.map((r, i) => (
+        <div key={`${r.question}-${i}`} className="min-w-0">
+          {r.question && (
+            <p className="break-words text-[14px] leading-5 text-pi-faint">
+              {r.question}
+            </p>
+          )}
+          <p className="break-words text-[14px] leading-5 text-pi-ink">
+            {r.answer}
+          </p>
+        </div>
+      ))}
     </section>
   );
 };

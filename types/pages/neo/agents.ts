@@ -8,7 +8,11 @@
  * the last run come back per company.
  */
 export type AgentStatus = "live" | "beta" | "coming-soon";
-export type AgentCategory = "Reconciliation" | "Bookkeeping" | "Receivables";
+export type AgentCategory =
+  | "Reconciliation"
+  | "Bookkeeping"
+  | "Receivables"
+  | "Compliance";
 
 export type AgentSource = {
   label: string;
