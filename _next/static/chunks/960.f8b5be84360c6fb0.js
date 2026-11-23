@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[960],{7960:function(r,e,n){n.d(e,{pdfjs:function(){return k}});var k=n(9508);(0,n(6376).nk)(),k.GlobalWorkerOptions.workerSrc="pdf.worker.mjs"}}]);
