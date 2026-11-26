@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[648],{3636:function(n,u,t){(window.__NEXT_P=window.__NEXT_P||[]).push(["/inbox",function(){return t(7469)}])},7469:function(n,u,t){"use strict";t.r(u),t.d(u,{default:function(){return _.Z}});var _=t(359)}},function(n){n.O(0,[684,359,888,774,179],function(){return n(n.s=3636)}),_N_E=n.O()}]);
